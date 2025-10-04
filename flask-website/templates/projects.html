@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Jacob Johnson{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <h1>My Projects</h1>
+        <p>A Showcase of my work in Python, AWS, and DevOps</p>
+    </div>
+
+    <div class="container">
+        {% if projects %}
+            <div class="projects-grid">
+                {% for project in projects %}
+                    <div class="project-card">
+                        {% if project.image_url %}
+                            <img src="{{ url_for('static', filename=project.image_url) }}" alt="{{ project.title }}">
+                        {% endif %}
+                        <div class="project-card-content">
+                            <h3>{{ project.title }}</h3>
+                            <p class="discription">{{ project.description }}</p>
+                            
+                            {% if project.technologies %}
+                                <div class="tech-tags">
+                                    {% for tech in project.technologies.split(',') %}
+                                        <span class="tech-tag">{{ tech.strip() }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            
+                            <div>
+                                {% if project.github_url %}
+                                    <a href="{{ project.github_url }}" target="_blank" class="btn btn-secondary">
+                                        View Code
+                                    </a>
+                                {% endif %}
+                                {% if project.live_url %}
+                                    <a href="{{ project.live_url }}" target="_blank" class="btn">
+                                        Live Demo
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="card" style="text-align: center; padding: 4rem 2rem;">
+                <h2>Projects Coming Soon!</h2>
+                <p style="margin: 1rem 0; font-size: 1.1rem; color: #7f8c8d;">
+                    I'm currently building my portfolio with exciting Python and AWS projects. 
+                    Check back soon to see what I've been working on!
+                </p>
+                <p style="margin-top: 2rem;">
+                    <strong>Planned Projects:</strong>
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 1.5rem 0;">
+                    <li style="margin: 0.5rem 0;">🚀 Serverless REST API with AWS Lambda & DynamoDB</li>
+                    <li style="margin: 0.5rem 0;">📊 Data Analysis Dashboard with Python & Streamlit</li>
+                    <li style="margin: 0.5rem 0;">🔗 URL Shortener with API Gateway & Lambda</li>
+                    <li style="margin: 0.5rem 0;">🖼️ Image Processing Pipeline using S3 & Lambda</li>
+                    <li style="margin: 0.5rem 0;">📝 Personal Expense Tracker with Flask & PostgreSQL</li>
+                </ul>
+                <a href="{{ url_for('contact') }}" class="btn" style="margin-top: 2rem;">
+                    Get in Touch
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
