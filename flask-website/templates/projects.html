@@ -30,13 +30,13 @@
                             
                             <div>
                                 {% if project.github_url %}
-                                    <a href="{{ project.github_url }}" target="_blank" class="btn btn-secondary">
-                                        View Code
+                                    <a href="{{ project.github_url }}" target="_blank" class="btn btn-secondary github-btn">
+                                        GitHub <i class="fa-brands fa-square-github"></i>
                                     </a>
                                 {% endif %}
                                 {% if project.live_url %}
-                                    <a href="{{ project.live_url }}" target="_blank" class="btn">
-                                        Live Demo
+                                    <a href="{{ project.live_url }}" target="_blank" class="btn live-btn">
+                                        Live Demo <i class="fa-regular fa-window-maximize"></i>
                                     </a>
                                 {% endif %}
                             </div>
