@@ -82,6 +82,22 @@ nav a:hover {
     margin: 3rem;
 }
 
+.resume-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color:#2c3e50;
+    transition: color 0.3s;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.resume-link:hover {
+    color: #3498db;
+}
+
 .tech-list-heading {
     text-align: center;
     margin-bottom: 2rem;
@@ -111,6 +127,12 @@ nav a:hover {
 
 .welcome p {
     font-style: italic;
+}
+
+.name {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 .hero h1 {
